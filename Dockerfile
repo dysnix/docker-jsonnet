@@ -2,7 +2,7 @@
 FROM golang:1.17-alpine AS builder
 
 ENV GO111MODULE=on
-RUN apk -U add git && \
+RUN apk --no-cache add git && \
     go install -v github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb@v0.4.0 && \
     go install -v github.com/google/go-jsonnet/cmd/jsonnet@c187d5b && \
     go install -v github.com/brancz/gojsontoyaml@latest
